@@ -1,0 +1,120 @@
+RDBMS là phần không thể không đề cập đến khi tìm hiểu về SQL. Vậy RDBMS là gì? Nó gồm những thành phần nào? 
+Chúng ta sẽ cùng tìm hiểu trong bài học này nhé.
+
+RDBMS là gì?
+RDBMS là viết tắt của Relational Database Management System (Hệ quản trị cơ sở dữ liệu quan hệ). 
+RDBMS là nền tảng cho SQL cũng như cho tất cả các hệ cơ sở dữ liệu khác như MS SQL Server, IBM DB2, Oracle, MýQL và Microsoft Access.
+
+Một hệ quản trị cơ sở dữ liệu quan hệ là hệ quản trị cơ sở dữ liệu (DBMS) dựa trên mô hình quan hệ được giới thiệu bởi E.F.Codd.
+
+Bảng là gì?
+Nếu đã biết qua về SQL chắc hẳn bạn đã biết đến các bảng dữ liệu trong đó. Có thể nói rằng, dữ liệu trong RDBMS được lưu trữ trong 
+các đối tượng cơ sở dữ liệu được gọi là các bảng. Bảng này về cơ bản là một bộ sưu tập các mục dữ liệu có quan hệ và nó bao gồm nhiều 
+cột và hàng.
+
+Hãy nhớ rằng, bảng là hình thức lưu trữ dữ liệu đơn giản và phổ biến nhất trong cơ sở dữ liệu quan hệ. Dưới đây là một ví dụ 
+về bảng SAN_PHAM:
+
++----+----------+-----+-----------+----------+
+| ID | TEN | SL | GIA |THANH_TIEN|
++----+----------+-----+-----------+----------+
+| 1 | Tui01 | 2 | 150000  | 300000.00|
+| 2 | Tui02 | 20 | 100000 |2000000.00|
+| 3 | Tui03 | 10 | 300000 |3000000.00|
+| 4 | Vi01  | 15 | 200000 |3000000.00|
+| 5 | Vi02  | 5 | 100000 | 500000.00|
++----+----------+-----+-----------+----------+
+Trường là gì?
+Mọi bảng đều có thể chia thành những mục nhỏ hơn gọi là trường (field). Các trường trong bảng SAN_PHAM 
+bao gồm: ID, TEN, SL, GIA và THANH_TIEN. Trường là một cột trong bảng, được thiết kế để duy trì thông tin cụ thể 
+về mọi bản ghi (record) trong bảng.
+
+Bản ghi hay hàng là gì?
+Một bản ghi thường được gọi là hàng dữ liệu, là từng mục riêng lẻ tồn tại trong bảng. Ví dụ, có 5 bản ghi trong bảng 
+SAN_PHAM trên. Và đây là một hàng dữ liệu hay bảng ghi trong bảng SAN_PHAM:
+
++----+----------+-----+-----------+----------+
+| 1 | Tui01 | 2 | 150000  | 300000.00|
++----+----------+-----+-----------+----------+
+ Bản ghi chính là một thực thể nằm ngang trong bảng.
+
+
+ 
+Cột là gì?
+Cột là một thực thể nằm dọc trong bảng, chứa tất cả các thông tin liên kết với một trường trong bảng. Ví dụ, 
+một cột trong bảng SAN_PHAM là TEN, mô tả tên sản phẩm và được hiển thị như dưới đây:
+
++----------+
+| TEN |
++----------+
+| Tui01 |
+| Tui02 |
+| Tui03 |
+| Vi01  |
+| Vi02  |
++----------+
+Giá trị NULL là gì?
+Giá trị NULL trong bảng là giá trị trong trường bị để trống, hay nói cách khác là trường không chứa giá trị, 
+nó bị để trống khi tạo bản ghi. Bạn cần phải nhớ rằng, NULL là trường bị để trống, hoàn toàn khác với giá trị 0 
+hoặc trường có chứa khoảng trắng. Trường có giá trị NULL là trường đã bị để trống ngay từ quá trình tạo bản ghi.
+
+Ràng buộc trong SQL
+Ràng buộc là những quy tắc thực thi trên các cột dữ liệu của một bảng. Chúng được sử dụng để giới hạn loại dữ 
+liệu có thể nhập vào bảng. Những ràng buộc này giúp đảm bảo tính chính xác và độ tin cậy của dữ liệu trong cơ sở dữ liệu.
+
+Có hai loại ràng buộc chính là ràng buộc cấp độ cột (chỉ áp dụng trong cột) và ràng buộc cấp độ bảng (áp dụng trong toàn bảng dữ liệu).
+
+Đây là danh sách những ràng buộc được sử dụng phổ biến nhất trong SQL:
+
+NOT NULL: Đảm bảo rằng cột không chứa giá trị NULL.
+DEFAULT: Cung cấp giá trị mặc định cho cột khi không có giá trị nào được chỉ định cho cột.
+UNIQUE: Đảm bảo rằng tất cả các giá trị trong một cột là khác nhau.
+PRIMARY Key: Chúng ta thường gọi là khóa chính, ràng buộc này xác định bản ghi duy nhất trong một bảng cơ sở dữ liệu. 
+FOREIGN Key: Hay còn gọi là khóa ngoại, ràng buộc này xác định duy nhất một bản ghi trong bất kỳ bảng cơ sở dữ liệu nào khác. 
+Đọc thế khó hiểu lắm đúng không? Bạn có thể hiểu đơn giản rằng, khóa ngoại là một hoặc một nhóm cột trong bảng cơ sở dữ liệu, 
+đóng vai trò là cầu nối giữa dữ liệu trong 2 bảng khác nhau. Nó hoạt động như một tham chiếu chéo giữa các bảng vì nó tham chiếu tới 
+khóa chính của bảng khác, từ đó thiết lập thành một liên kết giữa các bảng. Phần lớn các bảng trong một hệ thống cơ sở dữ liệu tuân 
+theo khái niệm khóa ngoại. Trong những cơ sở dữ liệu phức tạp và kho dữ liệu, dữ liệu trong một miền phải được thêm vào nhiều bảng, 
+do đó duy trì mối quan hệ giữa chúng. Khái niệm toàn vẹn tham chiếu cũng bắt nguồn từ lý thuyết khóa ngoại này. Việc thực thi khóa 
+ngoại thường phức tạp hơn khóa chính. Mình thấy cái này khó hiểu nhất nên giải thích thêm thôi, nếu vẫn chưa thông bạn cũng không cần 
+vội nhé, trong các bài tiếp theo sẽ có giải thích chi tiết :).
+CHECK: Ràng buộc CHECK đảm bảo rằng tất cả các giá trị trong một cột đáp ứng được những điều kiện nhất định.
+INDEX: Thường được sử dụng để tạo và trích xuất dữ liệu từ cơ sở dữ liệu một cách nhanh chóng.
+Toàn vẹn dữ liệu trong SQL
+Tính toàn vẹn dữ liệu là tổng thể hoàn chỉnh, chính xác và nhất quán của dữ liệu, nó đảm bảo các giá trị thêm mới, sửa đổi phải 
+đảm bảo tính chính xác, hợp lý với tổng thể dữ liệu. Tính toàn vẹn thường được thiết lập trong giai đoạn thiết kế cơ sở dữ liệu
+thông qua việc sử dụng các thủ tục và quy tắc chuẩn. Những phương pháp kiểm tra lỗi và thủ tục xác nhận khác nhau sẽ được triển
+khai để duy trì tính toàn vẹn của dữ liệu. Nếu dữ liệu định đưa vào bảng vi phạm các quy tắc, thủ tục của toàn vẹn dữ liệu thì nó 
+sẽ không được lưu vào cơ sở dữ liệu.
+
+Dưới đây là một số loại toàn vẹn dữ liệu tồn tại trong mỗi RDBMS:
+
+Entity Integrity - Toàn vẹn thực thể: Đảm bảo rằng không có bản ghi trùng lặp trong bảng.
+
+Domain Integrity - Toàn vẹn miền giá trị: Đảm bảo dữ liệu nhập vào một cột xác định phải tuân theo hạn chế nhất định như kiểu dữ liệu,
+định dạng hoặc phạm vi dữ liệu.
+
+Referential integrity - Toàn vẹn tham chiếu: Đề cập đến độ chính xác và tính nhất quán của dữ liệu trong mối quan hệ. 
+Trong cơ sở dữ liệu quan hệ, dữ liệu được liên kết giữa hai hoặc nhiều bảng. Điều này đạt được thông qua các khóa ngoại. 
+Do đó, toàn vẹn tham chiếu đảm bảo rằng hàng không bị xóa khi nó được sử dụng bởi bản ghi khác, nghĩa là dữ liệu phải còn nguyên vẹn 
+ở cả hai phía của tham chiếu. 
+
+User-Defined Integrity - Toàn vẹn được định nghĩa bởi người dùng: Áp dụng một số quy tắc toàn vẹn dữ liệu do người dùng định nghĩa, 
+với điều kiện quy tắc này khác với những loại toàn vẹn dữ liệu bên trên.
+
+Chuẩn hóa cơ sở dữ liệu 
+ Chuẩn hóa cơ sở dữ liệu là quá trình tổ chức dữ liệu một các hiệu quả trong cơ sở dữ liệu. Tại sao cần phải thực hiện quá trình này? 
+ Có hai lý do:
+
+Một là, loại bỏ dữ liệu thừa, ví dụ như dữ liệu giống nhau được lưu trữ trên nhiều bảng.
+Hai là, đảm bảo tính phụ thuộc của dữ liệu có ý nghĩa, ví dụ như dữ liệu được lưu trữ hợp lý, dữ liệu có liên quan với nhau thì được
+lưu trữ trên cùng một bảng.
+Hai lý do này rất xứng đáng để thực hiện chuẩn hóa cơ sở dữ liệu, vì chúng làm giảm dung lượng không gian lưu trữ mà cơ sở dữ liệu sử 
+dụng và đảm bảo rằng dữ liệu được lưu trữ logic. Chuẩn hóa bao gồm một loạt chỉ dẫn giúp bạn tạo một cấu trúc cơ sở dữ liệu tốt.
+
+Chỉ dẫn chuẩn hóa được chia thành các Normal Form (định dạng hoặc cách cấu trúc cơ sở dữ liệu được bố trí) với mục đích là tổ chức cấu 
+trúc cơ sở dữ liệu để nó tuân thủ quy tắc của First Normal Form (1NF) rồi Second Normal Form (2NF) và cuối cùng là Third Normal Form 
+(3NF). Chúng ta sẽ tìm hiểu cụ thể về các Normal Form này trong các bài chuyên sâu hơn.
+
+Bài này toàn lý thuyết, khái niệm rối như một mớ bòng bong, nhưng bạn cố gắng nắm bắt lấy những ý chính vì nó chính là cơ sở để triển 
+khai những nội dung tiếp theo trong SQL. Bài sau cũng là một bài lý thuyết nữa, nói về database :D
